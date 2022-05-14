@@ -9,8 +9,14 @@ const App: React.FC =() => {
         <Button disabled>hello</Button>
         <Button btnType={ButtonType.Primary} size={ButtonSize.Large}>hello</Button>
         <Button btnType={ButtonType.Link} href="http://www.baidu.com" disabled>Baidu</Button>
-        <Menu defaultIndex={0}>
-          <MenuItem>
+        <Menu defaultIndex={0} onSelect={(index) => {alert(index)}}>
+          <MenuItem index={0}>
+            cool link
+          </MenuItem>
+          <MenuItem index={1}>
+            cool link
+          </MenuItem>
+          <MenuItem index={2}>
             cool link
           </MenuItem>
         </Menu>
