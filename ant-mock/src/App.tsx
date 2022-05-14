@@ -2,22 +2,31 @@ import React from 'react';
 import Button, { ButtonType, ButtonSize } from './components/Button/button';
 import Menu from './components/Menu/menu';
 import MenuItem from './components/Menu/menuItem';
+import SubMenu from './components/Menu/subMenu';
 const App: React.FC =() => {
   return (
     <div className="App">
       <header className="App-header">
-        <Button disabled>hello</Button>
-        <Button btnType={ButtonType.Primary} size={ButtonSize.Large}>hello</Button>
-        <Button btnType={ButtonType.Link} href="http://www.baidu.com" disabled>Baidu</Button>
-        <Menu defaultIndex={0} onSelect={(index) => {alert(index)}}>
-          <MenuItem index={0}>
-            cool link
+        <Menu defaultIndex='0' onSelect={(index) => {alert(index)}} mode="vertical" defaultOpenSubMenus={['2']}>
+          <MenuItem>
+            cool link1
           </MenuItem>
-          <MenuItem index={1}>
-            cool link
+          <MenuItem>
+            cool link2
           </MenuItem>
-          <MenuItem index={2}>
-            cool link
+          <SubMenu title='dropdown'>
+            <MenuItem>
+              dropdown1
+            </MenuItem>
+            <MenuItem>
+              dropdown2
+            </MenuItem>
+            <MenuItem>
+              dropdown3
+            </MenuItem>
+          </SubMenu>
+          <MenuItem>
+            cool link3
           </MenuItem>
         </Menu>
         <a

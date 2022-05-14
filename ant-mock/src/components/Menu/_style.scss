@@ -8,9 +8,6 @@
 
 .mock-menu {
     display: flex;
-}
-.mock-menu {
-    display: flex;
     flex-wrap: wrap;
     padding-left: 0;
     margin-bottom: 30px;
@@ -60,7 +57,7 @@
           transform: rotate(180deg) !important;
         }
     }
-    .viking-submenu {
+    .mock-submenu {
         //display: none;
         list-style:none;
         padding-left: 0;
@@ -76,15 +73,15 @@
           }
         }
     }
-    .viking-submenu.menu-opened {
-      //display: block;
+    .mock-submenu.menu-opened {
+      display: block;
     }
 }
 .menu-horizontal {
     >.menu-item {
       border-bottom: $menu-item-active-border-width solid transparent;
     }
-    .viking-submenu {
+    .mock-submenu {
       position: absolute;
       background: $white;
       z-index: 100;
