@@ -1,3 +1,10 @@
+@import "../../styles/variables";
+//layout
+@import "../../styles/reboot";
+//mixin
+@import "../../styles/mixin";
+// animation
+@import "../../styles/animation";
 @each $key, $val in $theme-colors {
     .icon-#{$key} {
       color: $val;
