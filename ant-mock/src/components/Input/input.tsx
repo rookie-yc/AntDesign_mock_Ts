@@ -2,6 +2,7 @@ import React, { ReactElement, InputHTMLAttributes, FC, ChangeEvent } from "react
 import classNames from "classnames";
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import Icon from '../Icon/Icon';
+import './_style.scss'
 
 type InputSize = 'lg' | 'sm'
 export interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size' > {
@@ -44,7 +45,16 @@ export const Input: FC<InputProps> = (props) => {
         'input-group-append': !!append,
         'input-group-prepend': !!prepend
     })
-
+    const fixControlledValue = (value: any) => {
+        if (typeof value === 'undefined' || value === null) {
+          return ''
+        }
+        return value
+    }
+    if('value' in props) {
+        delete restProps.defaultValue
+        restProps.value = fixControlledValue(props.value)
+    }
     return (
         <div className={cnames} style={style}>
           {prepend && <div className="mock-input-group-prepend">{prepend}</div>}
@@ -58,3 +68,4 @@ export const Input: FC<InputProps> = (props) => {
         </div>
       )
 }
+export default Input;
