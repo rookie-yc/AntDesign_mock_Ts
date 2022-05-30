@@ -2,6 +2,9 @@
   "name": "ant-mock",
   "version": "0.1.0",
   "private": true,
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
@@ -23,10 +26,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "clean": "rimraf ./dist",
+    "build": "npm run clean && npm run build-ts && npm run build-css",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build-ts": "tsc -p tsconfig.build.json",
+    "build-css": "sass ./src/styles/index.scss ./dist/index.css",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
   },
@@ -64,6 +69,8 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "react-docgen-typescript-loader": "^3.7.2",
-    "sass": "^1.26.5"
+    "rimraf": "^3.0.2",
+    "sass": "~1.26.5",
+    "mock-ship": "0.1.0"
   }
 }
